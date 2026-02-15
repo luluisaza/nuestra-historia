@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solo para ti</title>
+
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Georgia,serif;
+text-align:center;
+padding:30px;
+}
+
+.seccion{
+display:none;
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#6a0dad;
+color:white;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+}
+
+input{
+padding:12px;
+border-radius:25px;
+border:none;
+width:80%;
+max-width:250px;
+text-align:center;
+margin-top:15px;
+}
+
+.carta{
+margin-top:30px;
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:15px;
+}
+
+.mensaje-oculto{
+display:none;
+margin-top:15px;
+color:#d8b4ff;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro" class="seccion" style="display:block;">
+<h2>Hay algo que quiero que descubras…</h2>
+<p>Pero solo si estás listo.</p>
+<button onclick="mostrar('pista1')">Estoy listo</button>
+</div>
+
+<!-- PISTA 1 -->
+<div id="pista1" class="seccion">
+<h3>Primera pista 🖤</h3>
+<p>
+No es una palabra.  
+No es un lugar.  
+Es un día que cambió todo.
+</p>
+<button onclick="mostrar('pista2')">Seguir</button>
+</div>
+
+<!-- PISTA 2 -->
+<div id="pista2" class="seccion">
+<h3>Segunda pista ✨</h3>
+<p>
+Fue el inicio de algo que no imaginábamos,  
+pero que hoy significa tanto para mí.
+</p>
+<p>
+Escríbela sin espacios.
+</p>
+
+<input type="password" id="clave" placeholder="••••••">
+<br>
+<button onclick="verificar()">Descubrir</button>
+</div>
+
+<!-- CARTA -->
+<div id="carta" class="seccion">
+<div class="carta">
+<h2>Wilmer 🖤</h2>
+
+<p>
+Si llegaste hasta aquí es porque recuerdas
+el día que comenzó nuestra historia.
+Y eso ya significa más de lo que imaginas.
+</p>
+
+<p>
+Desde ese momento, mi mundo cambió de una forma
+silenciosa pero profunda.
+Contigo entendí que el amor no siempre llega
+haciendo ruido…
+a veces llega despacio,
+se instala,
+y se convierte en hogar.
+</p>
+
+<p>
+Me has enseñado paciencia,
+cuidado,
+complicidad.
+Me has dado seguridad en momentos
+en los que ni yo misma la tenía.
+Y eso no se olvida.
+</p>
+
+<p>
+No sé qué nos depare el futuro,
+pero sí sé algo:
+siempre voy a valorar lo que construimos,
+lo que sentimos,
+y lo que somos cuando estamos juntos.
+</p>
+
+<button onclick="mostrarMensaje()">Hay algo más…</button>
+
+<div class="mensaje-oculto">
+Prometo elegirte incluso en los días difíciles,
+porque lo que siento por ti
+no es pasajero,
+es consciente.
+</div>
+
+<p style="margin-top:20px;">
+Gracias por ser parte de mi historia.
+</p>
+
+<button onclick="reiniciar()">Cerrar</button>
+
+</div>
+</div>
+
+<script>
+function mostrar(id){
+document.querySelectorAll('.seccion').forEach(sec=>sec.style.display='none');
+document.getElementById(id).style.display='block';
+}
+
+function verificar(){
+var clave=document.getElementById("clave").value;
+if(clave==="180125"){
+mostrar("carta");
+}else{
+alert("Esa no es la fecha correcta… intenta otra vez 🖤");
+}
+}
+
+function mostrarMensaje(){
+document.querySelector(".mensaje-oculto").style.display="block";
+}
+
+function reiniciar(){
+location.reload();
+}
+</script>
+
+</body>
+</html>
